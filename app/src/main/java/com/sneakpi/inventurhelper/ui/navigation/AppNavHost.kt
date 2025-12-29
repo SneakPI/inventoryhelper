@@ -17,19 +17,19 @@ fun AppNavHost(navController: NavHostController) {
         startDestination = AppRoute.Login.route
     ) {
         composable(route = AppRoute.Login.route) {
-            LoginScreen()
+            LoginScreen(navController)
         }
         composable(route = AppRoute.Main.route) {
-            MainScreen()
+            MainScreen(navController)
         }
         composable(route = AppRoute.Scanner.route) {
-            ScannerScreen()
+            ScannerScreen(navController)
         }
         composable(route = AppRoute.Settings.route) {
-            SettingsScreen()
+            SettingsScreen(navController)
         }
         composable(route = AppRoute.Admin.route) {
-            AdminScreen()
+            AdminScreen(navController)
         }
     }
 }

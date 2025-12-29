@@ -1,14 +1,41 @@
 package com.sneakpi.inventurhelper.ui.screens.login
 
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.Button
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
+import com.sneakpi.inventurhelper.ui.navigation.AppRoute
 
 @Composable
-fun LoginScreen() {
+fun LoginScreen(navController: NavController) {
     Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-        Text("Login Screen")
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(innerPadding)
+                .padding(16.dp),
+            verticalArrangement = Arrangement.Center,
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            Text("Login Screen")
+            Button(
+                onClick = {
+                    navController.navigate(AppRoute.Main.route) {
+                        popUpTo(AppRoute.Login.route) { inclusive = true }
+                    }
+                },
+                modifier = Modifier.padding(top = 16.dp)
+            ) {
+                Text("Weiter")
+            }
+        }
     }
 }
